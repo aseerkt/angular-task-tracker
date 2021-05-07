@@ -9,12 +9,17 @@ import { Task } from '../../mock-tasks';
 })
 export class TaskItemComponent implements OnInit {
   @Input() task!: Task;
-  @Output() onDeleteTask: EventEmitter<number> = new EventEmitter();
+  @Output() onDeleteTask = new EventEmitter();
+  @Output() onToggleTask = new EventEmitter();
   faTimes = faTimes;
 
   ngOnInit(): void {}
 
   onDelete() {
     this.onDeleteTask.emit();
+  }
+  onToggle() {
+    this.onToggleTask.emit();
+    this.task.reminder = !this.task.reminder;
   }
 }

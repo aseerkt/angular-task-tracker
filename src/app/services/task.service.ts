@@ -19,4 +19,13 @@ export class TaskService {
     const url = this.apiUrl + `/${id}`;
     return this.http.delete(url);
   }
+
+  toggleReminder(task: Task) {
+    const url = this.apiUrl + `/${task.id}`;
+    return this.http.put(url, { ...task, reminder: !task.reminder });
+  }
+
+  addTask(task: Task): Observable<Task> {
+    return this.http.post<Task>(this.apiUrl, task);
+  }
 }

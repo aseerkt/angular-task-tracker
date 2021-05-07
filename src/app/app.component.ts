@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
+import { Task } from './mock-tasks';
 
 @Component({
   selector: 'app-root',
